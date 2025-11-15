@@ -1,6 +1,3 @@
-# disk0-wipe-poc
-Proof-of-Concept: Unrecoverable Disk Wipe (Educational Only)
-
 # ⚠️ Disk0 Unrecoverable Wipe – **PROOF OF CONCEPT ONLY**
 
 > **NO REAL-WORLD, REAL-LIFE, OR OPERATIONAL USE**  
@@ -10,13 +7,13 @@ Proof-of-Concept: Unrecoverable Disk Wipe (Educational Only)
 
 ## Ethical Scope (Binding)
 
-| Condition                  | Status  |
-|---------------------------|---------|
+| Condition                  | Status                  |
+|---------------------------|-------------------------|
 | Intended Use              | Educational / Theoretical |
-| Real Systems              | **NEVER** |
-| Production / Personal Data| **NEVER** |
-| Live Environments         | **NEVER** |
-| Deployment                | **NEVER** |
+| Real Systems              | **NEVER**               |
+| Production / Personal Data| **NEVER**               |
+| Live Environments         | **NEVER**               |
+| Deployment                | **NEVER**               |
 
 ---
 
@@ -37,7 +34,7 @@ New-VHD -Path $vhdPath -SizeBytes ($sizeGB * 1GB) -Fixed |
   Format-Volume -FileSystem NTFS -Confirm:$false
 
 $simDrive = (Get-Disk | Where-Object {$_.Path -like "*VHD*"}).Number
-$simLetter = (Get-Partition -DiskNumber $simDrive).DriveLetter + ": ":
+$simLetter = (Get-Partition -DiskNumber $simDrive).DriveLetter + ":"
 
 Write-Host "[PoC] Simulating wipe on VHD Disk $simDrive ($simLetter)`n"
 
@@ -50,13 +47,52 @@ Dismount-VHD $vhdPath
 Remove-Item $vhdPath -Force
 Write-Host "[PoC] Simulation complete. VHD deleted."
 
-Method,Outcome
-clean all,All sectors zeroed
-3× entropy + cipher /w:,No recovery possible
-Verification,Get-Content -Raw -Encoding Byte → all 0x00 or random
-
-File,Purpose
-wipe-disk0-unrecoverable.ps1,Core logic (PoC mode)
-SIMULATION-TEST.ps1,Safe VHD demo
+Forensic Result (Simulated)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MethodOutcomeclean allAll sectors zeroed3× entropy + cipher /w:No recovery possibleVerificationGet-Content -Raw -Encoding Byte → all 0x00 or random
+Beyond forensic recovery in simulation
+Tested: Recuva, TestDisk, Autopsy → 0 files recovered
+
+Files
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+FilePurposewipe-disk0-unrecoverable.ps1Core logic (PoC mode)SIMULATION-TEST.ps1Safe VHD demo
+
+Updated: November 15, 2025 10:58 AM EST
+Location: US
+License: MIT
