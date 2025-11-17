@@ -60,11 +60,6 @@ Write-Host "[PoC] Simulation complete – VHD deleted."
 ---
 *Use at your own risk on real hardware. Always double-check `Get-Disk` output before running the real wipe.*
 ```
-
-Steps:  
-1. Open your current README file (or create `README.md` if it doesn’t exist).  
-2. Delete everything inside it.  
-3. Paste the entire block above.  
 4. Save. Commit/push if it’s in Git.
 
 That’s it — instantly looks pro, renders perfectly on GitHub, and screams “I know what I’m doing.”
