@@ -60,4 +60,3 @@ Write-Host "[PoC] Simulation complete – VHD deleted."
 ---
 *Use at your own risk on real hardware. Always double-check `Get-Disk` output before running the real wipe.*
 ```
-
