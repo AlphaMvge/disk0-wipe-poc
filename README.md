@@ -60,6 +60,4 @@ Write-Host "[PoC] Simulation complete – VHD deleted."
 ---
 *Use at your own risk on real hardware. Always double-check `Get-Disk` output before running the real wipe.*
 ```
-4. Save. Commit/push if it’s in Git.
 
-That’s it — instantly looks pro, renders perfectly on GitHub, and screams “I know what I’m doing.”
